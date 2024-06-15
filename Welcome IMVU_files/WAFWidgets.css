@@ -1,0 +1,887 @@
+/*css!/common/waf/js/widget/dualName/DualName.css*/
+/*
+Note: This is not part of any standard, but is supported in all browsers we care
+about except Firefox. Until Firefox has a native solution for multi-line
+wrapping, please do not try to hack it to make it work. It is not worth the
+maintenance cost.
+*/
+.dual-name {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative; }
+  .dual-name.dual-name-icon-hidden .dual-name-icon {
+    margin-right: 0 !important;
+    display: none !important;
+    width: 0px !important; }
+  .dual-name.is-host .profile-icon-image {
+    border: 2px solid rgba(244, 81, 30, 0.9); }
+  .dual-name .dual-name-icon {
+    position: relative;
+    padding: 0;
+    vertical-align: top;
+    font-family: "Gotham SSm 5r", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0; }
+    .dual-name .dual-name-icon .profile-icon {
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top: 0px; }
+  .dual-name .dual-name-names {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: "Gotham SSm 5r", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0; }
+    .dual-name .dual-name-names .display-name-spacer {
+      margin-bottom: 1px; }
+    .dual-name .dual-name-names .display-name-wrap .display-name-wrap-text {
+      display: inline;
+      height: auto;
+      width: auto; }
+    .dual-name .dual-name-names .display-name-wrap .vip-badge {
+      display: inline; }
+  .dual-name.dln-s-tiny .dual-name-icon {
+    height: 15px;
+    width: 15px; }
+    .dual-name.dln-s-tiny .dual-name-icon .profile-icon {
+      height: 15px;
+      width: 15px; }
+      .dual-name.dln-s-tiny .dual-name-icon .profile-icon .profile-icon-image {
+        height: 15px;
+        width: 15px; }
+      .dual-name.dln-s-tiny .dual-name-icon .profile-icon .is-online {
+        height: 5px;
+        width: 5px; }
+  .dual-name.dln-s-small .dual-name-icon {
+    height: 30px;
+    width: 30px; }
+    .dual-name.dln-s-small .dual-name-icon .profile-icon {
+      height: 30px;
+      width: 30px; }
+      .dual-name.dln-s-small .dual-name-icon .profile-icon .profile-icon-image {
+        height: 30px;
+        width: 30px; }
+      .dual-name.dln-s-small .dual-name-icon .profile-icon .is-online {
+        height: 10px;
+        width: 10px; }
+  .dual-name.dln-s-medium .dual-name-icon {
+    height: 50px;
+    width: 50px; }
+    .dual-name.dln-s-medium .dual-name-icon .profile-icon {
+      height: 50px;
+      width: 50px; }
+      .dual-name.dln-s-medium .dual-name-icon .profile-icon .profile-icon-image {
+        height: 50px;
+        width: 50px; }
+      .dual-name.dln-s-medium .dual-name-icon .profile-icon .is-online {
+        height: 16px;
+        width: 16px; }
+  .dual-name.dln-s-large .dual-name-icon {
+    height: 75px;
+    width: 75px; }
+    .dual-name.dln-s-large .dual-name-icon .profile-icon {
+      height: 75px;
+      width: 75px; }
+      .dual-name.dln-s-large .dual-name-icon .profile-icon .profile-icon-image {
+        height: 75px;
+        width: 75px; }
+      .dual-name.dln-s-large .dual-name-icon .profile-icon .is-online {
+        height: 24px;
+        width: 24px; }
+  .dual-name.dln-s-big .dual-name-icon {
+    height: 100px;
+    width: 100px; }
+    .dual-name.dln-s-big .dual-name-icon .profile-icon {
+      height: 100px;
+      width: 100px; }
+      .dual-name.dln-s-big .dual-name-icon .profile-icon .profile-icon-image {
+        height: 100px;
+        width: 100px; }
+      .dual-name.dln-s-big .dual-name-icon .profile-icon .is-online {
+        height: 16px;
+        width: 16px; }
+  .dual-name.dln-o-horiz {
+    display: grid;
+    grid: auto/auto minmax(0, max-content);
+    align-items: center;
+    justify-content: flex-start; }
+    .dual-name.dln-o-horiz.dual-name-icon-hidden {
+      grid: auto/minmax(0, max-content); }
+      .dual-name.dln-o-horiz.dual-name-icon-hidden .dual-name-names {
+        padding-left: 0; }
+    .dual-name.dln-o-horiz .dual-name-icon {
+      display: inline-block; }
+    .dual-name.dln-o-horiz .dual-name-names {
+      display: inline-block;
+      padding: 10px 0 10px 10px; }
+  .dual-name.dln-o-vert {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap; }
+    .dual-name.dln-o-vert .dual-name-icon {
+      display: block;
+      margin: 0; }
+    .dual-name.dln-o-vert .dual-name-names {
+      display: block;
+      margin: 4px 0 0 0; }
+      .dual-name.dln-o-vert .dual-name-names .display-name {
+        justify-content: center; }
+      .dual-name.dln-o-vert .dual-name-names .at-avatar-name {
+        justify-content: center; }
+
+.dual-name.ignore-clicks {
+  cursor: auto;
+  pointer-events: none; }
+  .dual-name.ignore-clicks .profile-icon {
+    cursor: auto;
+    pointer-events: none; }
+    .dual-name.ignore-clicks .profile-icon .profile-icon-image {
+      cursor: auto;
+      pointer-events: none; }
+      .dual-name.ignore-clicks .profile-icon .profile-icon-image > img {
+        cursor: auto;
+        pointer-events: none; }
+
+html[dir="rtl"]
+.dual-name.dual-name-icon-hidden .dual-name-icon {
+  margin-right: auto !important;
+  margin-left: 0 !important; }
+
+html[dir="rtl"]
+.dual-name.dln-o-horiz.dual-name-icon-hidden .dual-name-names {
+  padding-left: auto;
+  padding-right: 0; }
+
+html[dir="rtl"]
+.dual-name.dln-o-horiz .dual-name-names {
+  padding: 10px 10px 10px 0; }
+/*css!/common/waf/js/widget/atAvatarName/AtAvatarName.css*/
+/*
+Note: This is not part of any standard, but is supported in all browsers we care
+about except Firefox. Until Firefox has a native solution for multi-line
+wrapping, please do not try to hack it to make it work. It is not worth the
+maintenance cost.
+*/
+.at-avatar-name {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow: visible;
+  cursor: pointer; }
+  .at-avatar-name .at-avatar-name-at {
+    vertical-align: top;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    font-family: "Gotham SSm 5r", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0; }
+  .at-avatar-name .at-avatar-name-text {
+    vertical-align: top;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    font-family: "Gotham SSm 5r", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0; }
+  .at-avatar-name.an-s-tiny {
+    height: 10px; }
+    .at-avatar-name.an-s-tiny .at-avatar-name-at {
+      margin-top: 0px;
+      font-size: 10px !important;
+      margin-bottom: 0px; }
+    .at-avatar-name.an-s-tiny .at-avatar-name-text {
+      margin-top: 0px;
+      font-size: 10px !important;
+      margin-bottom: 0px; }
+  .at-avatar-name.an-s-small {
+    height: 14px; }
+    .at-avatar-name.an-s-small .at-avatar-name-at {
+      margin-top: 1px;
+      font-size: 12px;
+      margin-bottom: 1px; }
+    .at-avatar-name.an-s-small .at-avatar-name-text {
+      margin-top: 1px;
+      font-size: 12px;
+      margin-bottom: 1px; }
+  .at-avatar-name.an-s-medium {
+    height: 21px; }
+    .at-avatar-name.an-s-medium .at-avatar-name-at {
+      margin-top: 3px;
+      font-size: 15px;
+      margin-bottom: 3px; }
+    .at-avatar-name.an-s-medium .at-avatar-name-text {
+      margin-top: 3px;
+      font-size: 15px;
+      margin-bottom: 3px; }
+  .at-avatar-name.an-s-large {
+    height: 26px; }
+    .at-avatar-name.an-s-large .at-avatar-name-at {
+      margin-top: 4px;
+      font-size: 18px;
+      margin-bottom: 4px; }
+    .at-avatar-name.an-s-large .at-avatar-name-text {
+      margin-top: 4px;
+      font-size: 18px;
+      margin-bottom: 4px; }
+  .at-avatar-name.an-s-big {
+    height: 32px; }
+    .at-avatar-name.an-s-big .at-avatar-name-at {
+      margin-top: 4px;
+      font-size: 24px;
+      margin-bottom: 4px; }
+    .at-avatar-name.an-s-big .at-avatar-name-text {
+      margin-top: 4px;
+      font-size: 24px;
+      margin-bottom: 4px; }
+  .at-avatar-name.an-fc-white .at-avatar-name-at {
+    color: #fff; }
+  .at-avatar-name.an-fc-white .at-avatar-name-text {
+    color: #fff; }
+  .at-avatar-name.an-fc-white.hovering .at-avatar-name-at {
+    color: #404040; }
+  .at-avatar-name.an-fc-white.hovering .at-avatar-name-text {
+    color: #404040; }
+  .at-avatar-name.an-fc-light-gray .at-avatar-name-at {
+    color: #a8a8a8; }
+  .at-avatar-name.an-fc-light-gray .at-avatar-name-text {
+    color: #a8a8a8; }
+  .at-avatar-name.an-fc-dark-gray .at-avatar-name-at {
+    color: #404040; }
+  .at-avatar-name.an-fc-dark-gray .at-avatar-name-text {
+    color: #404040; }
+  .at-avatar-name.an-fc-dark-gray.hovering .at-avatar-name-at {
+    color: #fff; }
+  .at-avatar-name.an-fc-dark-gray.hovering .at-avatar-name-text {
+    color: #fff; }
+  .at-avatar-name.an-d-inline {
+    display: inline; }
+  .at-avatar-name.an-d-inline-block {
+    display: inline-block; }
+  .at-avatar-name.an-d-block {
+    display: block; }
+  .at-avatar-name.an-d-flex {
+    display: flex; }
+  .at-avatar-name.an-d-hidden {
+    display: none; }
+
+.at-avatar-name.ignore-clicks {
+  cursor: auto;
+  pointer-events: none; }
+
+.mobile .at-avatar-name .at-avatar-name-text {
+  width: auto; }
+
+html[dir="rtl"] .at-avatar-name {
+  justify-content: flex-end;
+  flex-direction: row-reverse; }
+/*css!/common/waf/js/widget/displayName/DisplayName.css*/
+/*
+Note: This is not part of any standard, but is supported in all browsers we care
+about except Firefox. Until Firefox has a native solution for multi-line
+wrapping, please do not try to hack it to make it work. It is not worth the
+maintenance cost.
+*/
+.display-name {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  line-height: initial;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  cursor: pointer; }
+  .display-name .display-name-text {
+    max-width: 250px;
+    vertical-align: top;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    font-family: "Gotham SSm 5r", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0; }
+  .display-name .wrap-it {
+    white-space: normal;
+    overflow-wrap: normal;
+    word-break: break-all; }
+  .display-name .display-name-badges {
+    vertical-align: top;
+    display: inline-block;
+    cursor: pointer;
+    padding: 0;
+    margin: 0; }
+    .display-name .display-name-badges .display-name-badge {
+      vertical-align: top; }
+  .display-name .creator-badge {
+    background-image: linear-gradient(155.06deg, #3B2889 3.13%, #7026A8 102.29%);
+    border-radius: 50%; }
+    .display-name .creator-badge path {
+      mix-blend-mode: hard-light; }
+    .display-name .creator-badge.is-pro {
+      background-image: linear-gradient(127.48deg, #F28201 2.62%, #EB175C 94.57%); }
+      .display-name .creator-badge.is-pro path {
+        mix-blend-mode: luminosity; }
+  .display-name .display-name-badges-hidden {
+    display: none; }
+  .display-name.dn-s-tiny .display-name-text, .display-name.dn-s-tiny .whisper-you-to, .display-name.dn-s-tiny .whisper-to-me {
+    margin-top: 0px;
+    font-size: 10px !important;
+    margin-bottom: 0px; }
+  .display-name.dn-s-tiny .display-name-badges {
+    margin-top: 0px;
+    height: 10px;
+    margin-bottom: 0px; }
+    .display-name.dn-s-tiny .display-name-badges .display-name-badge {
+      margin: 0 0 0 2px;
+      padding: 0;
+      height: 10px;
+      line-height: 10px;
+      width: 10px; }
+      .display-name.dn-s-tiny .display-name-badges .display-name-badge .badge-image {
+        height: 10px; }
+  .display-name.dn-s-small .display-name-text, .display-name.dn-s-small .whisper-you-to, .display-name.dn-s-small .whisper-to-me {
+    margin-top: 1px;
+    font-size: 12px;
+    margin-bottom: 1px; }
+  .display-name.dn-s-small .display-name-badges {
+    margin-top: 1px;
+    height: 12px;
+    margin-bottom: 1px; }
+    .display-name.dn-s-small .display-name-badges .display-name-badge {
+      margin: 0 0 0 2px;
+      padding: 0;
+      height: 12px;
+      line-height: 12px;
+      width: 12px; }
+      .display-name.dn-s-small .display-name-badges .display-name-badge .badge-image {
+        height: 12px; }
+  .display-name.dn-s-medium .display-name-text, .display-name.dn-s-medium .whisper-you-to, .display-name.dn-s-medium .whisper-to-me {
+    margin-top: 3px;
+    font-size: 15px;
+    margin-bottom: 3px; }
+  .display-name.dn-s-medium .display-name-badges {
+    margin-top: 3px;
+    height: 15px;
+    margin-bottom: 3px; }
+    .display-name.dn-s-medium .display-name-badges .display-name-badge {
+      margin: 0 0 0 2px;
+      padding: 0;
+      height: 15px;
+      line-height: 15px;
+      width: 15px; }
+      .display-name.dn-s-medium .display-name-badges .display-name-badge .badge-image {
+        height: 15px; }
+  .display-name.dn-s-large .display-name-text, .display-name.dn-s-large .whisper-you-to, .display-name.dn-s-large .whisper-to-me {
+    margin-top: 4px;
+    font-size: 18px;
+    margin-bottom: 4px; }
+  .display-name.dn-s-large .display-name-badges {
+    margin-top: 4px;
+    height: 18px;
+    margin-bottom: 4px; }
+    .display-name.dn-s-large .display-name-badges .display-name-badge {
+      margin: 0 0 0 2px;
+      padding: 0;
+      height: 18px;
+      line-height: 18px;
+      width: 18px; }
+      .display-name.dn-s-large .display-name-badges .display-name-badge .badge-image {
+        height: 18px; }
+  .display-name.dn-s-big .display-name-text, .display-name.dn-s-big .whisper-you-to, .display-name.dn-s-big .whisper-to-me {
+    margin-top: 4px;
+    font-size: 24px;
+    margin-bottom: 4px; }
+  .display-name.dn-s-big .display-name-badges {
+    margin-top: 4px;
+    height: 24px;
+    margin-bottom: 4px; }
+    .display-name.dn-s-big .display-name-badges .display-name-badge {
+      margin: 0 0 0 2px;
+      padding: 0;
+      height: 24px;
+      line-height: 24px;
+      width: 24px; }
+      .display-name.dn-s-big .display-name-badges .display-name-badge .badge-image {
+        height: 24px; }
+  .display-name.dn-fc-white .display-name-text, .display-name.dn-fc-white .whisper-you-to, .display-name.dn-fc-white .whisper-to-me {
+    color: #fff; }
+  .display-name.dn-fc-white.hovering .display-name-text, .display-name.dn-fc-white.hovering .whisper-you-to, .display-name.dn-fc-white.hovering .whisper-to-me {
+    color: #404040; }
+  .display-name.dn-fc-light-gray .display-name-text, .display-name.dn-fc-light-gray .whisper-you-to, .display-name.dn-fc-light-gray .whisper-to-me {
+    color: #a8a8a8; }
+  .display-name.dn-fc-medium-dark-gray .display-name-text, .display-name.dn-fc-medium-dark-gray .whisper-you-to, .display-name.dn-fc-medium-dark-gray .whisper-to-me {
+    color: #404040; }
+  .display-name.dn-fc-dark-gray .display-name-text, .display-name.dn-fc-dark-gray .whisper-you-to, .display-name.dn-fc-dark-gray .whisper-to-me {
+    color: #404040; }
+  .display-name.dn-fc-dark-gray.hovering .display-name-text, .display-name.dn-fc-dark-gray.hovering .whisper-you-to, .display-name.dn-fc-dark-gray.hovering .whisper-to-me {
+    color: #fff; }
+  .display-name.dn-fc-orange .display-name-text, .display-name.dn-fc-orange .whisper-you-to, .display-name.dn-fc-orange .whisper-to-me {
+    color: #f4511e; }
+  .display-name.dn-d-inline {
+    display: inline; }
+  .display-name.dn-d-inline-block {
+    display: inline-block; }
+  .display-name.dn-d-block {
+    display: block; }
+  .display-name.dn-d-hidden {
+    display: none; }
+  .display-name.dn-d-flex {
+    display: flex; }
+
+.vip-badge {
+  pointer-events: initial; }
+
+.display-name.ignore-clicks {
+  cursor: auto;
+  pointer-events: none; }
+
+.mobile .display-name .display-name-text {
+  width: auto; }
+
+html[dir="rtl"] .display-name {
+  justify-content: flex-start;
+  flex-direction: row; }
+  html[dir="rtl"] .display-name.dn-s-tiny .display-name-badges .display-name-badge {
+    margin: 0 2px 0 0; }
+  html[dir="rtl"] .display-name.dn-s-small .display-name-badges .display-name-badge {
+    margin: 0 2px 0 0; }
+  html[dir="rtl"] .display-name.dn-s-medium .display-name-badges .display-name-badge {
+    margin: 0 2px 0 0; }
+  html[dir="rtl"] .display-name.dn-s-large .display-name-badges .display-name-badge {
+    margin: 0 2px 0 0; }
+  html[dir="rtl"] .display-name.dn-s-big .display-name-badges .display-name-badge {
+    margin: 0 2px 0 0; }
+
+.whisper-to-me {
+  padding-left: 4px; }
+
+.whisper-you-to {
+  padding-right: 2px; }
+/*css!/common/waf/js/widget/tooltip/Tooltip.css*/
+/*
+Note: This is not part of any standard, but is supported in all browsers we care
+about except Firefox. Until Firefox has a native solution for multi-line
+wrapping, please do not try to hack it to make it work. It is not worth the
+maintenance cost.
+*/
+.tooltip {
+  transition: opacity .07s;
+  position: absolute;
+  width: 300px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.95);
+  text-transform: none;
+  pointer-events: none;
+  opacity: 0;
+  left: 0;
+  /* XXXcrr: UiContext will trigger:
+       "Tried to trigger a "hidden" event on a *visible* element." if we only
+       use opacity here, when clicking Username instead of VIP Badge in the
+       account drawer. So, tooltips will not have the brief opacity fade until
+       we figure out what's going on there. */
+  display: none;
+  box-shadow: inset 0 0 0 1px #eaeaea;
+  overflow: hidden; }
+  .tooltip.tooltip-snug {
+    width: auto;
+    white-space: nowrap;
+    padding: 10px; }
+  .tooltip .tooltip-header {
+    font-family: "Gotham SSm 5r", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    text-transform: capitalize; }
+  .tooltip .tooltip-body > div {
+    margin: 10px 0; }
+  .tooltip .tooltip-body ul {
+    margin-left: 25px; }
+    .tooltip .tooltip-body ul li {
+      list-style-type: disc;
+      padding-left: 5px; }
+  .tooltip .tooltip-body .icon-payment-csc {
+    font-size: 30px; }
+  .tooltip .tooltip-body .icon-ppc-tooltip {
+    font-size: 50px; }
+  .tooltip .tooltip-body span.or {
+    font-family: "Gotham SSm 5r", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 500;
+    font-style: normal; }
+  .tooltip .tooltip-body .note {
+    color: #a8a8a8;
+    font-size: 10px; }
+  .tooltip.tooltip-wide {
+    width: 400px; }
+  .tooltip .cookie-tooltip {
+    height: 400px;
+    overflow-y: scroll; }
+  .tooltip .scene-mode-tooltip .icon {
+    font-size: 40px;
+    text-align: center; }
+/*css!/common/waf/js/dialog/tooltip/TooltipDialog.css*/
+/*
+Note: This is not part of any standard, but is supported in all browsers we care
+about except Firefox. Until Firefox has a native solution for multi-line
+wrapping, please do not try to hack it to make it work. It is not worth the
+maintenance cost.
+*/
+.mobile .tooltip-dialog .dialog-header .dialog-title {
+  text-overflow: ellipsis;
+  max-width: calc(100% - 140px);
+  overflow: hidden; }
+
+.mobile .tooltip-dialog .dialog-body {
+  justify-content: flex-start;
+  padding: 0 15px;
+  overflow-y: auto; }
+  .mobile .tooltip-dialog .dialog-body .tooltip-header {
+    font-family: "Gotham SSm 5r", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    margin: 15px 0 0 0; }
+  .mobile .tooltip-dialog .dialog-body .tooltip-body > div {
+    margin: 10px 0; }
+  .mobile .tooltip-dialog .dialog-body .tooltip-body ul {
+    margin-left: 25px; }
+    .mobile .tooltip-dialog .dialog-body .tooltip-body ul li {
+      list-style-type: disc;
+      padding-left: 5px; }
+  .mobile .tooltip-dialog .dialog-body .tooltip-body .icon-payment-csc {
+    font-size: 30px; }
+  .mobile .tooltip-dialog .dialog-body .tooltip-body .icon-ppc-tooltip {
+    font-size: 50px; }
+  .mobile .tooltip-dialog .dialog-body .tooltip-body span.or {
+    font-family: "Gotham SSm 5r", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 500;
+    font-style: normal; }
+  .mobile .tooltip-dialog .dialog-body .tooltip-body .note {
+    color: #a8a8a8;
+    font-size: 10px; }
+
+.mobile .tooltip-dialog .creator-badge-tooltip-cta,
+.mobile .tooltip-dialog .vip-badge-tooltip-cta {
+  font-family: "Gotham SSm 5r", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  text-transform: uppercase;
+  margin-top: 15px; }
+/*css!/common/waf/js/widget/profileIcon/ProfileIcon.css*/
+/*
+Note: This is not part of any standard, but is supported in all browsers we care
+about except Firefox. Until Firefox has a native solution for multi-line
+wrapping, please do not try to hack it to make it work. It is not worth the
+maintenance cost.
+*/
+.profile-icon {
+  position: relative;
+  display: block;
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #a8a8a8; }
+  .profile-icon > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top; }
+  .profile-icon.ignore-clicks {
+    cursor: auto; }
+    .profile-icon.ignore-clicks:hover {
+      opacity: 1; }
+  .profile-icon.new-profile-icon {
+    border-radius: 0;
+    background: none; }
+  .profile-icon .profile-icon-image {
+    position: relative;
+    display: block;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    background: #a8a8a8; }
+    .profile-icon .profile-icon-image > img {
+      display: block;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 0;
+      opacity: 1;
+      width: 100%; }
+      .profile-icon .profile-icon-image > img.is-loading {
+        opacity: 0; }
+  .profile-icon .online-status.is-online {
+    box-sizing: border-box;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 10px;
+    height: 10px;
+    background-color: #00FF9C;
+    border-radius: 50%;
+    border: 1px solid #fff; }
+  .profile-icon .number-actor {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    font-size: 18px;
+    font-family: "Gotham SSm 4r", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: normal;
+    font-style: normal; }
+  .profile-icon .number-actor-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background-color: #404040;
+    opacity: 0.5;
+    color: #fff;
+    border-radius: 50%; }
+
+.large-profile.profile-icon {
+  width: 50px;
+  height: 50px;
+  min-width: 50px; }
+  .large-profile.profile-icon .profile-icon-image {
+    width: 50px;
+    height: 50px; }
+  .large-profile.profile-icon .online-status.is-online {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #fff; }
+  .large-profile.profile-icon .number-actor {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    opacity: 1;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    font-size: 18px;
+    font-family: "Gotham SSm 4r", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: normal;
+    font-style: normal; }
+  .large-profile.profile-icon .number-actor-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background-color: #404040;
+    opacity: 0.5;
+    color: #fff;
+    border-radius: 50%; }
+
+.small-profile.profile-icon {
+  width: 16px;
+  height: 16px;
+  min-width: 16px; }
+  .small-profile.profile-icon .profile-icon-image {
+    width: 16px;
+    height: 16px; }
+
+.extra-large-profile.profile-icon {
+  width: 80px;
+  height: 80px;
+  min-width: 80px; }
+  .extra-large-profile.profile-icon .profile-icon-image {
+    width: 80px;
+    height: 80px; }
+/*css!/common/waf/js/widget/displayNameWrap/DisplayNameWrap.css*/
+/*
+Note: This is not part of any standard, but is supported in all browsers we care
+about except Firefox. Until Firefox has a native solution for multi-line
+wrapping, please do not try to hack it to make it work. It is not worth the
+maintenance cost.
+*/
+.display-name-wrap {
+  margin: 0;
+  padding: 0;
+  height: auto;
+  width: 100%;
+  max-width: 100%;
+  user-select: text; }
+  .display-name-wrap .display-name-wrap-text {
+    display: inline;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    font-family: "Gotham SSm 5r", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: normal;
+    user-select: text;
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-all; }
+  .display-name-wrap .vip-badge {
+    display: inline;
+    vertical-align: top;
+    padding: 0;
+    margin: 0;
+    position: relative; }
+    .display-name-wrap .vip-badge svg {
+      position: absolute;
+      top: 50%;
+      transform: translate(0%, -50%); }
+  .display-name-wrap .vip-badge-hidden {
+    display: none; }
+  .display-name-wrap.dnw-s-tiny .display-name-wrap-text {
+    font-size: 10px;
+    line-height: 10px; }
+  .display-name-wrap.dnw-s-tiny .vip-badge {
+    margin: 0 0 0 2px;
+    padding: 0;
+    height: 10px;
+    width: 12px; }
+    .display-name-wrap.dnw-s-tiny .vip-badge .badge-image {
+      height: 10px; }
+  .display-name-wrap.dnw-s-small .display-name-wrap-text {
+    font-size: 12px;
+    line-height: 14px; }
+  .display-name-wrap.dnw-s-small .vip-badge {
+    margin: 0 0 0 2px;
+    padding: 0;
+    height: 12px;
+    width: 12px; }
+    .display-name-wrap.dnw-s-small .vip-badge .badge-image {
+      height: 12px; }
+  .display-name-wrap.dnw-s-medium .display-name-wrap-text {
+    font-size: 15px;
+    line-height: 21px; }
+  .display-name-wrap.dnw-s-medium .vip-badge {
+    margin: 0 0 0 2px;
+    padding: 0;
+    height: 15px;
+    width: 15px; }
+    .display-name-wrap.dnw-s-medium .vip-badge .badge-image {
+      height: 15px; }
+  .display-name-wrap.dnw-s-large .display-name-wrap-text {
+    font-size: 18px;
+    line-height: 26px; }
+  .display-name-wrap.dnw-s-large .vip-badge {
+    margin: 0 0 0 2px;
+    padding: 0;
+    height: 18px;
+    width: 18px; }
+    .display-name-wrap.dnw-s-large .vip-badge .badge-image {
+      height: 18px; }
+  .display-name-wrap.dnw-s-big .display-name-wrap-text {
+    font-size: 24px;
+    line-height: 32px; }
+  .display-name-wrap.dnw-s-big .vip-badge {
+    margin: 0 0 0 2px;
+    padding: 0;
+    height: 24px;
+    width: 24px; }
+    .display-name-wrap.dnw-s-big .vip-badge .badge-image {
+      height: 24px; }
+  .display-name-wrap.dnw-fc-white .display-name-wrap-text {
+    color: #fff; }
+  .display-name-wrap.dnw-fc-light-gray .display-name-wrap-text {
+    color: #a8a8a8; }
+  .display-name-wrap.dnw-fc-dark-gray .display-name-wrap-text {
+    color: #404040; }
+
+.display-name-wrap.ignore-clicks {
+  cursor: auto;
+  pointer-events: none; }
+
+.mobile .display-name-wrap .display-name-wrap-text {
+  width: auto; }
+/*css!/common/waf/js/widget/customAmountInputField/CustomAmountInputField.css*/
+/*
+Note: This is not part of any standard, but is supported in all browsers we care
+about except Firefox. Until Firefox has a native solution for multi-line
+wrapping, please do not try to hack it to make it work. It is not worth the
+maintenance cost.
+*/
+.custom-amount-input-field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 0 15px; }
+  .custom-amount-input-field .custom-amount-input-title {
+    text-transform: uppercase;
+    font-size: 15px;
+    letter-spacing: 0.07em; }
+  .custom-amount-input-field .custom-amount-input-tooltip {
+    margin-top: 5px;
+    font-size: 10px;
+    color: #a8a8a8; }
+  .custom-amount-input-field input.custom-amount-input {
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    background: #f3f3f3;
+    color: #404040;
+    margin: 10px 0 0;
+    border-bottom: 1px solid #d4d4d4;
+    text-align: center;
+    font-size: 18px;
+    padding: 5px 0;
+    border-radius: 0; }
+    .custom-amount-input-field input.custom-amount-input::-webkit-inner-spin-button, .custom-amount-input-field input.custom-amount-input::-webkit-outer-spin-button {
+      -webkit-appearance: none; }
+    .custom-amount-input-field input.custom-amount-input::placeholder {
+      color: #d4d4d4; }
+  .custom-amount-input-field.error input[type="number"],
+  .custom-amount-input-field.error .custom-amount-input-tooltip {
+    color: #ff374d; }
+/*css!/common/waf/js/widget/EdgeCollectionPresenter.css*/
+/*
+Note: This is not part of any standard, but is supported in all browsers we care
+about except Firefox. Until Firefox has a native solution for multi-line
+wrapping, please do not try to hack it to make it work. It is not worth the
+maintenance cost.
+*/
+.edge-collection-init-error {
+  text-align: center;
+  width: 350px;
+  margin: 0 auto; }
+  .edge-collection-init-error svg {
+    margin-top: 50px;
+    width: 100px;
+    height: 100px; }
+  .edge-collection-init-error .error-title {
+    font-family: "Gotham SSm 5r", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin: 20px 0 10px; }
+  .edge-collection-init-error .error-text {
+    font-size: 12px; }

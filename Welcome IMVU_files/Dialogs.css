@@ -1,0 +1,540 @@
+/*css!/common/withme/js/dialog/modal/AlloyConfirmDialog.css*/
+/*
+Note: This is not part of any standard, but is supported in all browsers we care
+about except Firefox. Until Firefox has a native solution for multi-line
+wrapping, please do not try to hack it to make it work. It is not worth the
+maintenance cost.
+*/
+.confirm-dialog-alloy footer.dialog-footer,
+[data-ui-role="modal-dialog"][data-type="confirm"] footer.dialog-footer {
+  display: grid;
+  grid: 1fr / 1fr 1fr;
+  grid-gap: 10px; }
+
+.confirm-dialog-alloy.dark-text a,
+[data-ui-role="modal-dialog"][data-type="confirm"].dark-text a {
+  font-family: "Gotham SSm 5r", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  color: #404040; }
+/*css!/common/withme/js/dialog/modal/AlloyAlertDialog.css*/
+/*
+Note: This is not part of any standard, but is supported in all browsers we care
+about except Firefox. Until Firefox has a native solution for multi-line
+wrapping, please do not try to hack it to make it work. It is not worth the
+maintenance cost.
+*/
+[data-ui-role="modal-dialog"].alert-dialog-alloy {
+  background-color: #fff;
+  padding-top: 0;
+  padding-bottom: 0; }
+  [data-ui-role="modal-dialog"].alert-dialog-alloy .dialog-container {
+    padding: 0 30px 30px 30px; }
+  [data-ui-role="modal-dialog"].alert-dialog-alloy.dark-text a {
+    font-family: "Gotham SSm 5r", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: #404040; }
+/*css!/common/waf/js/Dropdown.css*/
+@charset "UTF-8";
+/*
+Note: This is not part of any standard, but is supported in all browsers we care
+about except Firefox. Until Firefox has a native solution for multi-line
+wrapping, please do not try to hack it to make it work. It is not worth the
+maintenance cost.
+*/
+.dropdown {
+  outline: none;
+  box-shadow: inset 0 0 0 1px #d4d4d4;
+  position: relative;
+  background: #fff;
+  height: 40px;
+  color: #404040;
+  line-height: 40px;
+  height: 40px; }
+  .dropdown.is-open {
+    pointer-events: all;
+    position: absolute; }
+    .dropdown.is-open .dropdown-option-list-container {
+      display: block; }
+  .dropdown.dim-no-value .dropdown-label span.no-value,
+  .dropdown.dim-no-value .dropdown-option[data-value=""] {
+    color: #a8a8a8; }
+  .dropdown.hide-arrow .dropdown-label {
+    padding-right: 10px; }
+    .dropdown.hide-arrow .dropdown-label::before {
+      display: none; }
+  .dropdown.light-text .dropdown-label span {
+    color: #a8a8a8; }
+  .dropdown .dropdown-label {
+    display: block;
+    min-height: 40px;
+    padding: 0 10px;
+    padding-right: 40px;
+    text-align: initial; }
+    .dropdown .dropdown-label::before {
+      font-family: 'icomoon';
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      /* Better Font Rendering =========== */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale; }
+    .dropdown .dropdown-label::before {
+      content: "";
+      position: absolute;
+      top: 1px;
+      right: 0;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+      font-size: 6px;
+      font-weight: bold;
+      color: #404040; }
+  .dropdown .dropdown-option-list-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    display: none;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    overflow: hidden;
+    z-index: 1; }
+  .dropdown .dropdown-scroll-up,
+  .dropdown .dropdown-scroll-down {
+    transition: opacity 0.15s;
+    z-index: 2;
+    width: 100%;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    opacity: 0;
+    pointer-events: none; }
+    .dropdown .dropdown-scroll-up::before,
+    .dropdown .dropdown-scroll-down::before {
+      position: absolute;
+      left: calc(50% - 20px);
+      transform: rotate(90deg);
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+      font-size: 10px;
+      font-weight: bold;
+      color: #404040; }
+    .dropdown .dropdown-scroll-up:hover::before,
+    .dropdown .dropdown-scroll-down:hover::before {
+      opacity: 0.75; }
+    .dropdown .dropdown-scroll-up:active::before,
+    .dropdown .dropdown-scroll-down:active::before {
+      opacity: 0.5625; }
+  .dropdown .dropdown-scroll-up {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0; }
+    .dropdown .dropdown-scroll-up::before {
+      font-family: 'icomoon';
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      /* Better Font Rendering =========== */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale; }
+    .dropdown .dropdown-scroll-up::before {
+      content: ""; }
+  .dropdown .dropdown-scroll-down {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0; }
+    .dropdown .dropdown-scroll-down::before {
+      font-family: 'icomoon';
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      /* Better Font Rendering =========== */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale; }
+    .dropdown .dropdown-scroll-down::before {
+      content: ""; }
+  .dropdown .dropdown-option-list {
+    width: calc(100% + 20px);
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; }
+  .dropdown .dropdown-option {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 10px; }
+  .dropdown.testing-middle {
+    margin-top: 160px; }
+  .dropdown.testing-bottom {
+    margin-top: 470px; }
+
+body.desktop .dropdown.can-scroll-up .dropdown-scroll-up {
+  opacity: 1;
+  pointer-events: all; }
+
+body.desktop .dropdown.can-scroll-down .dropdown-scroll-down {
+  opacity: 1;
+  pointer-events: all; }
+
+.dropdown .dropdown-option.is-selected,
+.dropdown.is-open .dropdown-label:hover,
+.dropdown.is-open .dropdown-label:hover::before {
+  background: #404040;
+  color: #fff; }
+
+.dropdown .dropdown-label {
+  transition: opacity 0.15s;
+  opacity: 0; }
+
+.dropdown.is-ready .dropdown-label {
+  opacity: 1; }
+/*css!/common/withme/js/dialog/modal/AlloyModalDialog.css*/
+/*
+Note: This is not part of any standard, but is supported in all browsers we care
+about except Firefox. Until Firefox has a native solution for multi-line
+wrapping, please do not try to hack it to make it work. It is not worth the
+maintenance cost.
+*/
+.transparent-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex; }
+
+@media screen and (min-width: 470px) {
+  .transparent-overlay {
+    right: -20px;
+    left: -20px;
+    overflow-y: scroll; } }
+
+[data-ui-role="modal-dialog"] {
+  margin: auto;
+  align-self: center;
+  position: relative; }
+  [data-ui-role="modal-dialog"].confirm-dialog-alloy .dialog-x,
+  [data-ui-role="modal-dialog"].alert-dialog-alloy .dialog-x,
+  [data-ui-role="modal-dialog"]:not(.can-dismiss) .dialog-x {
+    display: none; }
+  [data-ui-role="modal-dialog"].is-tall {
+    height: 80%; }
+    [data-ui-role="modal-dialog"].is-tall .dialog-container {
+      min-height: 470px;
+      max-height: 687px; }
+  [data-ui-role="modal-dialog"] .dialog-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    position: relative;
+    height: 100%;
+    min-height: 240px;
+    padding: 30px;
+    padding-top: 0;
+    background: rgba(255, 255, 255, 0.95); }
+    [data-ui-role="modal-dialog"] .dialog-container .cta-link {
+      order: 3;
+      flex-grow: 0;
+      flex-shrink: 0;
+      letter-spacing: 0.0833em;
+      line-height: 133%;
+      font-family: "Gotham SSm 4r", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      color: #deb359;
+      text-transform: uppercase;
+      padding-bottom: 15px;
+      cursor: pointer; }
+  [data-ui-role="modal-dialog"] .dialog-checkbox-container {
+    margin: 0 auto 10px; }
+  [data-ui-role="modal-dialog"] .dialog-dropdown-container {
+    margin: 0 auto 10px;
+    width: 100%; }
+  [data-ui-role="modal-dialog"] .overflowed {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 80px;
+    margin-right: 15px;
+    width: 100%;
+    text-align: left; }
+  [data-ui-role="modal-dialog"] h3 {
+    font-size: 15px;
+    font-family: "Gotham SSm 5r", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 70px;
+    height: 70px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+    margin: 0; }
+  [data-ui-role="modal-dialog"] footer.dialog-footer {
+    z-index: 300;
+    display: flex;
+    flex-shrink: 0; }
+    [data-ui-role="modal-dialog"] footer.dialog-footer > button {
+      flex-grow: 1; }
+  [data-ui-role="modal-dialog"].userpicker-dialog .dialog-footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: 60px; }
+  [data-ui-role="modal-dialog"].gift-thanking-message-dialog .dialog-footer,
+  [data-ui-role="modal-dialog"].vcoin-withdrawal-dialog .dialog-footer,
+  [data-ui-role="modal-dialog"].rest-web-gifting-dialog .dialog-footer,
+  [data-ui-role="modal-dialog"].userpicker-dialog .dialog-footer,
+  [data-ui-role="modal-dialog"].vcoin-conversion-dialog .dialog-footer {
+    height: auto;
+    background: #fff;
+    padding: 15px; }
+  [data-ui-role="modal-dialog"] .dialog-body {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-grow: 1;
+    z-index: 100;
+    height: 100%;
+    overflow: hidden; }
+  [data-ui-role="modal-dialog"]:not(.dialog-type-B):not(.dialog-type-B-flexible) .dialog-body > p,
+  [data-ui-role="modal-dialog"]:not(.dialog-type-B):not(.dialog-type-B-flexible) .dialog-body > .id-body-contents {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    text-align: center;
+    margin-bottom: 30px; }
+  [data-ui-role="modal-dialog"] .dialog-header {
+    z-index: 200; }
+    [data-ui-role="modal-dialog"] .dialog-header .dialog-back-button {
+      cursor: pointer;
+      position: absolute;
+      left: 15px;
+      width: 40px;
+      height: 100%;
+      display: flex;
+      align-items: center; }
+  [data-ui-role="modal-dialog"] .dialog-container.no-header .dialog-header {
+    display: none; }
+  [data-ui-role="modal-dialog"] .dialog-x {
+    z-index: 500; }
+  [data-ui-role="modal-dialog"]:not(.confirm-dialog) .dialog-x {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    padding-bottom: 10px;
+    font-size: 20px;
+    line-height: 20px;
+    color: #fff;
+    text-decoration: none; }
+  [data-ui-role="modal-dialog"]:not(.dialog-type-B):not(.dialog-type-B-flexible) > p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    min-height: 120px;
+    margin: 0 0 5px 0;
+    font-size: 15px; }
+
+.dialog-type-B .dialog-container, .dialog-type-B-flexible .dialog-container {
+  min-width: 470px;
+  padding: 0; }
+  .dialog-type-B .dialog-container .dialog-header, .dialog-type-B-flexible .dialog-container .dialog-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    width: 100%;
+    height: 50px;
+    font-size: 12px;
+    line-height: 50px;
+    font-family: "Gotham SSm 5r", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px; }
+    .dialog-type-B .dialog-container .dialog-header .dialog-title, .dialog-type-B-flexible .dialog-container .dialog-header .dialog-title {
+      font-size: 15px; }
+  .dialog-type-B .dialog-container .aux-header, .dialog-type-B-flexible .dialog-container .aux-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-family: "Gotham SSm 5r", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    z-index: 600;
+    height: 50px;
+    line-height: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-right: 10px; }
+  .dialog-type-B .dialog-container .dialog-body, .dialog-type-B-flexible .dialog-container .dialog-body {
+    margin-top: 50px;
+    padding-bottom: 0px; }
+  .dialog-type-B .dialog-container.no-header .dialog-body, .dialog-type-B-flexible .dialog-container.no-header .dialog-body {
+    margin-top: 0;
+    height: 100%; }
+
+.dialog-type-B p, .dialog-type-B-flexible p {
+  margin: 0 0 15px 0;
+  text-align: center; }
+
+.dialog-type-B .section-title, .dialog-type-B-flexible .section-title {
+  text-align: left;
+  margin-bottom: 10px; }
+
+.dialog-type-B footer button, .dialog-type-B-flexible footer button {
+  width: 100%; }
+
+[data-ui-role="modal-dialog"].is-padded .dialog-container, .dialog-type-B.is-padded .dialog-container, .dialog-type-B-flexible.is-padded .dialog-container {
+  padding: 0 15px; }
+
+[data-ui-role="modal-dialog"].is-padded .dialog-footer, .dialog-type-B.is-padded .dialog-footer, .dialog-type-B-flexible.is-padded .dialog-footer {
+  padding: 0 15px 15px 15px;
+  background-image: linear-gradient(top, transparent 0%, transparent 60%, #fff 100%);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%; }
+
+[data-ui-role="modal-dialog"].dialog-type-grid .dialog-container, .dialog-type-B.dialog-type-grid .dialog-container, .dialog-type-B-flexible.dialog-type-grid .dialog-container {
+  height: 100%;
+  position: relative;
+  display: grid;
+  grid-template-columns: 470px;
+  grid-template-rows: 50px 1fr 70px;
+  grid-template-areas: "dialog-header" "dialog-body" "dialog-footer"; }
+
+[data-ui-role="modal-dialog"].dialog-type-grid .dialog-header, .dialog-type-B.dialog-type-grid .dialog-header, .dialog-type-B-flexible.dialog-type-grid .dialog-header {
+  grid-row: 1 / 2;
+  grid-area: dialog-header; }
+
+[data-ui-role="modal-dialog"].dialog-type-grid .dialog-body, .dialog-type-B.dialog-type-grid .dialog-body, .dialog-type-B-flexible.dialog-type-grid .dialog-body {
+  grid-area: dialog-body;
+  grid-row: 2 / 4;
+  width: 100%;
+  position: absolute;
+  text-align: left;
+  margin-top: 0; }
+
+[data-ui-role="modal-dialog"].dialog-type-grid .dialog-footer, .dialog-type-B.dialog-type-grid .dialog-footer, .dialog-type-B-flexible.dialog-type-grid .dialog-footer {
+  grid-area: drawer-footer;
+  grid-row: 3 / 4;
+  width: 100%;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9); }
+  [data-ui-role="modal-dialog"].dialog-type-grid .dialog-footer button, .dialog-type-B.dialog-type-grid .dialog-footer button, .dialog-type-B-flexible.dialog-type-grid .dialog-footer button {
+    width: 100%;
+    margin: 15px;
+    border: none; }
+
+.dialog-type-B-flexible .dialog-container .dialog-body {
+  height: auto; }
+
+@media screen and (min-width: 470px) {
+  .dialog-type-B > .dialog-container {
+    height: 550px;
+    min-height: 550px;
+    max-height: 550px; }
+  [data-ui-role="modal-dialog"] {
+    min-width: 470px;
+    max-width: 470px;
+    word-wrap: break-word;
+    padding: 45px 0; }
+    [data-ui-role="modal-dialog"].no-padding {
+      padding: 0; }
+    [data-ui-role="modal-dialog"].is-tall {
+      height: calc(80% + 90px);
+      min-height: 560px;
+      max-height: 777px; }
+  .userpicker-dialog .user-picker {
+    padding: 10px 15px; }
+  .userpicker-dialog.gifting-recipient-picker .user-picker {
+    padding: 10px 15px 60px 10px; } }
+
+@media screen and (max-width: 469px) {
+  .mobile .dialog-type-B-flexible .dialog-container .dialog-body {
+    height: calc(100% - 50px); }
+  .mobile .dialog-type-B-flexible .dialog-container.no-header .dialog-body {
+    height: 100%; } }
+
+@media screen and (max-width: 469px) {
+  .mobile [data-ui-role="modal-dialog"] {
+    min-width: calc(100% - 30px);
+    max-width: calc(100% - 30px); }
+    .mobile [data-ui-role="modal-dialog"].dialog-type-B, .mobile [data-ui-role="modal-dialog"].dialog-type-B-flexible {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
+      min-width: 100%; }
+      .mobile [data-ui-role="modal-dialog"].dialog-type-B .dialog-container, .mobile [data-ui-role="modal-dialog"].dialog-type-B-flexible .dialog-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        min-width: 100%;
+        min-height: 100%; }
+      .mobile [data-ui-role="modal-dialog"].dialog-type-B .dialog-x, .mobile [data-ui-role="modal-dialog"].dialog-type-B-flexible .dialog-x {
+        position: absolute;
+        top: 0;
+        left: 15px;
+        color: #a8a8a8;
+        font-size: 12px;
+        height: 50px;
+        line-height: 50px;
+        text-transform: uppercase; }
+        .mobile [data-ui-role="modal-dialog"].dialog-type-B .dialog-x::before, .mobile [data-ui-role="modal-dialog"].dialog-type-B-flexible .dialog-x::before {
+          display: none; }
+      .mobile [data-ui-role="modal-dialog"].dialog-type-B footer.dialog-footer, .mobile [data-ui-role="modal-dialog"].dialog-type-B-flexible footer.dialog-footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%; } }
+
+@media screen and (max-width: 469px) {
+  .mobile [data-ui-role="modal-dialog"].dialog-type-grid .dialog-container, .mobile .dialog-type-B.dialog-type-grid .dialog-container, .mobile .dialog-type-B-flexible.dialog-type-grid .dialog-container {
+    grid-template-columns: auto;
+    grid-template-rows: 50px 1fr 40px; }
+  .mobile [data-ui-role="modal-dialog"].dialog-type-grid .dialog-body, .mobile .dialog-type-B.dialog-type-grid .dialog-body, .mobile .dialog-type-B-flexible.dialog-type-grid .dialog-body {
+    width: 100%;
+    position: relative;
+    text-align: left; }
+  .mobile [data-ui-role="modal-dialog"].dialog-type-grid .dialog-footer button, .mobile .dialog-type-B.dialog-type-grid .dialog-footer button, .mobile .dialog-type-B-flexible.dialog-type-grid .dialog-footer button {
+    margin: 0px; } }
+
+@media screen and (max-width: 320px) {
+  [data-ui-role="modal-dialog"] h3.dialog-title.long-title {
+    margin: 0 -15px; } }
+
+.mobile [data-ui-role="modal-dialog"] .dialog-header .dialog-back-button {
+  display: none; }
+
+.mobile [data-ui-role="modal-dialog"].gift-thanking-dialog .dialog-footer,
+.mobile [data-ui-role="modal-dialog"].vcoin-withdrawal-dialog .dialog-footer,
+.mobile [data-ui-role="modal-dialog"].rest-web-gifting-dialog .dialog-footer,
+.mobile [data-ui-role="modal-dialog"].userpicker-dialog .dialog-footer {
+  padding: 0; }

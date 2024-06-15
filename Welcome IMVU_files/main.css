@@ -1,0 +1,24 @@
+/* override base withme styling for easier reintegration */
+/*
+Note: This is not part of any standard, but is supported in all browsers we care
+about except Firefox. Until Firefox has a native solution for multi-line
+wrapping, please do not try to hack it to make it work. It is not worth the
+maintenance cost.
+*/
+.loading-progress .progress .bar {
+  background-color: rgba(222, 179, 89, 0.3) !important;
+  height: 25px !important;
+  border-radius: 0px !important; }
+
+.loading-progress .progress .border {
+  display: none; }
+
+.loading-progress .progress .percentage {
+  user-select: none;
+  cursor: default; }
+
+.desktop .submode-ftux.ftux-layout:not(.is2d) .ftux-body {
+  top: 50px !important; }
+
+.welcome-funcaptcha-loader {
+  display: none; }
